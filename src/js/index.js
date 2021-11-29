@@ -14,15 +14,17 @@ subBt.addEventListener('click', () => {
     axios({
         method: 'post',
         url: 'https://notify-api.line.me/api/notify',
-        headers: { 'Authorization': 'Bearer CciBEJrsGnIqydiovzi5G2fiuJfi2mtHb0xMZppnsLx' },
-        timeout: 5000,
+        headers: {'Authorization': 'Bearer CciBEJrsGnIqydiovzi5G2fiuJfi2mtHb0xMZppnsLx'},
         data: {
             message: message.value,
             stickerPackageId: stickerPackageId.value,
             stickerId: stickerId.value
         }
+    }).then((res) => {
+        console.log(res.data);
+
+
     })
-        .then((response) => console.log(response))
 
 
 })
