@@ -32,7 +32,7 @@ app.get('/index.js', (req, res) => {
 app.get('/readform', (req, res) => {
     try {
         //  send index file
-        res.sendFile(athDir+'/index.html');
+        res.sendFile(pathDir+'/index.html');
         //  get get req
         let message = req.query.message;
         let stickerPackageId = req.query.stickerPackageId;
