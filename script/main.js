@@ -2,13 +2,16 @@ const express = require('express');
 const app = express();
 const axios = require('axios');
 const Formdata = require('form-data');
+const path = require('path');
 const port = 3000 || process.env.EXPRESS_PORT
 require('dotenv').config();
+const pathDir = path.resolve('./src');
+console.log('the src dir:', pathDir);
 
 // send the index file
 app.get('/', (req, res) => {
     try {
-        res.sendFile('C:/Users/paul/Desktop/line/src/index.html');
+        res.sendFile(pathDir+'/index.html');
     } catch (e) {
         console.error('sever error', e);
         res.sendStatus(500)
@@ -18,7 +21,7 @@ app.get('/', (req, res) => {
 // load js file
 app.get('/index.js', (req, res) => {
     try {
-        res.sendFile('C:/Users/paul/Desktop/line/src/js/index.js');
+        res.sendFile(pathDir+'/js/index.js');
     } catch (e) {
         console.error('sever error', e);
         res.sendStatus(500)
@@ -29,7 +32,7 @@ app.get('/index.js', (req, res) => {
 app.get('/readform', (req, res) => {
     try {
         //  send index file
-        res.sendFile('C:/Users/paul/Desktop/line/src/index.html');
+        res.sendFile(athDir+'/index.html');
         //  get get req
         let message = req.query.message;
         let stickerPackageId = req.query.stickerPackageId;
